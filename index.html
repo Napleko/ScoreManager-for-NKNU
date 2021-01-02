@@ -1,0 +1,161 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>學生成績管理系統0.1</title>
+	<style>
+		.outside{
+		  position: relative;
+		  width: 100%;
+		  margin:0 auto;
+		  border:10px solid blue;
+		}
+		.img{
+  width: 100%;
+  height:350px;
+}
+.serial{ 
+  position: absolute;
+  top:10px;
+  left:10px;
+  background-color: lightblue;
+}
+.caption{
+  width: 150px;
+  position: absolute;
+  bottom:10px;
+  left:50%;
+  margin-left: -75px;
+  background-color: lightblue;
+  text-align: center;
+}
+.prev{
+  cursor: pointer;
+  position:absolute;
+  left:5px;
+  top:50%;
+  margin-top:-20px;
+  background-color: rgba(0,0,0,0.1);
+  color:yellow;
+  transition: background-color 0.5s;
+} 
+.next{
+  cursor: pointer;
+  position:absolute;
+  right:5px;
+  top:50%;
+  margin-top:-20px;
+  background-color: rgba(0,0,0,0.1);
+  color:yellow;
+  transition: background-color 0.5s;
+}
+.prev:hover, .next:hover{
+  background-color: blue;
+}
+
+
+
+	</style>
+	<script>
+		var pics, now=0, num=4;
+		window.onload=function(){
+			pics=document.getElementsByClassName("pic");
+			show(now);
+		}
+		function show(i){
+			now=i;
+			for(var k=0;k<pics.length;k++){
+				pics[k].style.display="none";
+			}
+			pics[now].style.display="block";
+		}
+		function next(){
+			now+=1;
+			if (now>3) 
+				now=0;
+			show(now);
+		}
+		function prev(){
+			now-=1;
+			if (now<0) 
+				now=num-1;
+			show(now);
+		}
+  </script>
+	
+</head>
+
+<body>
+    <div>
+      <form action="authorize.php" method="POST">
+        <select class = 'user_identity' id = 'identity'>
+          <option value = 'none'>請選擇身分</option>
+          <option value = 'administrator'>管理員</option>
+          <option value = 'professor'>教授</option>
+          <option value = 'student'>學生</option>
+        </select>
+        <input type = 'text' name = 'account' placeholder = '請輸入帳號'>
+        <input type = 'password' name = 'pswd' placeholder = '請輸入密碼'>
+        <input type = 'button' name = 'login' value = '登入'>
+      </form>
+      <script type="text/javascript">
+      $(document).ready(function() {
+          $('[name = "login"]').click(function() { 
+              $.ajax({
+                  type: "POST", //傳送方式
+                  url: "authorize.php", //傳送目的地
+                  dataType: "json", //資料格式
+                  data: { //傳送資料
+                      identity: $("#identity").val(),
+                      account: $('[name = "account"]').val(),
+                      pswd: $('[name = "pswd"]').val()
+                  },
+                  success: function(data) {
+                    if (data.success === true) {
+                      alert(data.message);
+                      window.location.href = data.webpage;
+                    }
+                    else {
+                      alert(data.success);
+                    }
+                  }
+              })
+          })
+      });
+      </script>
+	</div>
+	<div class="outside">
+		<div class="pic">
+		   <div class="serial">1/4</div>
+		   <bgcolor="#cccccc">
+		   <img class="img" src="images/nknu_logo.jpg">
+		   <div class="caption">高師大logo</div>
+		</div>
+		<div class="pic">
+			<div class="serial">2/4</div>
+			<img class="img" src="images/images.jpg">
+			<div class="caption">66周年校慶</div>
+		</div>
+	<div class="pic">
+			<div class="serial">3/4</div>
+			<img class="img" src="images/nknu1.jpg">
+			<div class="caption">招生資訊</div>
+		</div>
+		<div class="pic">	
+			<div class="serial">4/4</div>
+			<img class="img" src="images/nknu2.jpg">
+			<div class="caption">高師大宿舍</div>
+		</div>
+		<div class="prev" onclick="prev()">&lt</div>
+		<div class="next" onclick="next()">&gt</div>
+	</div>
+	<div><marquee><h1>成績管理系統(BETA)</h1></marquee></div><!--跑馬燈--> 
+	<style>
+		body {
+			background-image: url('images/nknu.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: 100% 100%;
+		}</style>
+</body>
