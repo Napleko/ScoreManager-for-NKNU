@@ -20,7 +20,7 @@
             <button>學生資訊</button> <br/>
             <button>選修課程</button> <br/>
             <button>選修課程成績</button> <br/>
-            <button>產生成績單</button> <br/>
+            <button onclick="SS()">產生成績單</button> <br/>
         </div>
         <button name='logout' class='logout'>登出</button>
     </div>
@@ -63,6 +63,10 @@
       function CM(){
         var showHtml = document.getElementById("am");
             showHtml.src = '/Classes/ClassManager.php';
+      }
+      function SS(){
+        var showHtml = document.getElementById("am");
+            showHtml.src = '/Student/studentSelect.php';
       }
     </script>
 </body>
