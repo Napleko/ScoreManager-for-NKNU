@@ -173,7 +173,6 @@
               })}
           })
       });
-
       function setUpChangeClass(Code , Name , Professor , Credit , Category){
             var showOldCode = document.getElementById('oldCode');
             showOldCode.innerHTML = Code;
@@ -189,6 +188,8 @@
             newCategory.value = Category;
       }
       </script>
+      <!--課程修改-->
+      </br>
     <form action="changeClass.php" method="POST">
             舊代碼：<label id = 'oldCode'></label>
             <input type = 'text' id = 'classCode2' placeholder = '新代碼'>
