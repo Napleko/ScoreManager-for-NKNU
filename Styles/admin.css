@@ -1,1 +1,43 @@
-
+html{
+    background-color: rgb(184, 221, 255);
+}
+h1 {
+    font-size: 50px;
+    text-align: center;
+}
+h2 {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    height: 20px;
+}
+button {
+    width: 300px;
+    height: 50px;
+    font-size: 30px;
+    margin: 10px 15px 10px 15px;
+}
+.logout{
+    margin: 50px 15px 20px 15px;
+    background-color: tomato;
+}
+.menu{
+    float: left;
+    align-self: left;
+    width: 330px;
+    background-color: rgb(10, 139, 190);
+    align-content: center;
+}
+.page{
+    float: left;
+    align-self: right;
+    width: 75%;
+    height: 100%;
+    margin-left: 20px;
+    background-color: white;
+    border: 1px solid black;
+}
+.operation{
+    width: auto;
+    height: 600px;
+}

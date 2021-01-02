@@ -1,0 +1,54 @@
+html{
+    text-align: center;
+}
+table{
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 30px;
+    border: 1px solid black;
+    width: 1000px;
+}
+h1{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.newUser{
+    margin-right: 5px;
+}
+input[name="classSemester"]{
+    margin-right: 10px;
+    width: 70px;
+}
+input[name="classCode"]{
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 100px;
+}
+input[name="className"]{
+    margin-right: 10px;
+    width: 150px;
+}
+input[name="classProfessor"]{
+    margin-right: 10px;
+    width: 100px;
+}
+input[name="classCredit"]{
+    margin-right: 10px;
+    width: 50px;
+}
+input[name="addClass"]{
+    margin-left: 20px;
+}
+th{
+    font-size: 30px;
+    background-color: rgb(31, 0, 117);
+    color: white;
+}
+td{
+    border: 1px solid black;
+    font-size: 25px;
+}
+.alHead{
+    background-color: rgb(152, 222, 255);
+    color: rgb(0, 0, 0);
+}

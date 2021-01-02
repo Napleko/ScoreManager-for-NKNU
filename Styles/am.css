@@ -1,0 +1,30 @@
+html{
+    text-align: center;
+}
+table{
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 30px;
+    border: 1px solid black;
+    width: 1000px;
+}
+h1{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.newUser{
+    margin-right: 10px;
+}
+th{
+    font-size: 30px;
+    background-color: rgb(31, 0, 117);
+    color: white;
+}
+td{
+    border: 1px solid black;
+    font-size: 25px;
+}
+.alHead{
+    background-color: rgb(152, 222, 255);
+    color: rgb(0, 0, 0);
+}
