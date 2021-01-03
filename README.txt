@@ -20,6 +20,9 @@
 修改成績(後端)：changeScore.php
 學生資訊管理頁：StudentManager.php
 修改學生資訊(後端)：changeStudent.php
+學生選修課程管理頁：showStudentClass.php
+移除學生選修課程(後端)：removeStudentClass.php
+取得學生選修課程(後端)：getStudentClass.php
 
 
 管理員頁：
@@ -41,6 +44,11 @@
 學生資訊管理分頁：
 -動態顯示學生列表
 -修改學生資訊
+
+學生選修課程頁：
+-動態顯示學生選項
+-取得學生選修課程資訊
+-移除學生選修課程
 
 學生成績單頁：
 -取得學生列表
