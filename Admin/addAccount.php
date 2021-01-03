@@ -1,16 +1,21 @@
 <?php session_start();
-//header('Content-Type: application/json; charset=UTF-8'); //設定資料類型為 json，編碼 utf-8
-
 if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
     @$identity = $_POST["identity"];
     @$account = $_POST["account"];
     @$pswd = $_POST["pswd"];
+    @$name = $_POST["name"];
 
-    if ($identity != 'none' && $account != '' && $pswd != '') { 
+    if ($identity != 'none' && $account != '' && $pswd != '' && $name != '') { 
         $csvfile = './user_identity.csv';
+
         $line = array (
-            $identity, $account, $pswd,
+            $identity, $account, $pswd, $name
         );
+        if($identity==='st'){
+            $line = array (
+                $identity, $account, $pswd, $name, 0
+            );
+        }
 
         $fp = fopen($csvfile, 'a');
 

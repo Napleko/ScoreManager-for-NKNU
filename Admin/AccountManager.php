@@ -19,6 +19,7 @@
             </select>
             <input type = 'text' class = 'newUser' name = 'account' placeholder = '帳號'>
             <input type = 'password' class = 'newUser' name = 'pswd' placeholder = '密碼'>
+            <input type = 'text' class = 'newUser' name = 'name' placeholder = '名稱'>
             <input type = 'button' class = 'newUser' name = 'addAccount' value = '新增帳號'>
         </form>
       <script type="text/javascript">
@@ -30,6 +31,7 @@
                   dataType: "json", //資料格式
                   data: { //傳送資料
                       identity: $("#identity").val(),
+                      name: $('[name = "name"]').val(),
                       account: $('[name = "account"]').val(),
                       pswd: $('[name = "pswd"]').val()
                   },
@@ -50,11 +52,12 @@
     <!--帳號列-->
     <table id='accountList'>
         <tr>
-            <th colspan="5">帳號列表</th>
+            <th colspan="6">帳號列表</th>
         </tr>
         <tr class='alHead'>
             <td>身分</td>
             <td>帳號</td>
+            <td>名字</td>
             <td>密碼</td>
             <td>修改密碼</td>
             <td>刪除帳號</td>
@@ -64,7 +67,7 @@
 </html>
 
 <script>
-    function showAccounts(uID,act,pswd,row) {
+    function showAccounts(uID,act,pswd,name,row) {
         //帳號列表
         var account_List=document.getElementById('accountList');
         var newRow = document.createElement("tr");
@@ -89,6 +92,10 @@
         var account = document.createElement("td");
         account.innerHTML = act;
         newRow.appendChild(account);
+        //名字
+        var showName = document.createElement("td");
+        showName.innerHTML = name;
+        newRow.appendChild(showName);
         //密碼
         var password = document.createElement("td");
         password.innerHTML = pswd;
@@ -175,7 +182,7 @@ $file = fopen($csvfile, "r");
 $row = 0;
 while ($data = fgetcsv($file, 1000, ",")) {
     $num = count($data);
-    echo "<script type='text/javascript'>showAccounts('$data[0]','$data[1]','$data[2]','$row');</script>";
+    echo "<script type='text/javascript'>showAccounts('$data[0]','$data[1]','$data[2]','$data[3]','$row');</script>";
     $row++;
 }
 fclose($file);
