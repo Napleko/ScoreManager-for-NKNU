@@ -18,6 +18,9 @@
 取得學生學期成績(後端)：getSemesterScore.php
 修改學生課程成績：editScoreAdmin.php
 修改成績(後端)：changeScore.php
+學生資訊管理頁：StudentManager.php
+修改學生資訊(後端)：changeStudent.php
+
 
 管理員頁：
 各功能對應的網頁內嵌於id='am'的iframe
@@ -34,6 +37,10 @@
 -新增課程
 -刪除課程
 -修改課程
+
+學生資訊管理分頁：
+-動態顯示學生列表
+-修改學生資訊
 
 學生成績單頁：
 -取得學生列表
