@@ -17,8 +17,8 @@
         <button onclick="CM()">課程管理</button>
         <div>
             <h2>學生管理</h2>
-            <button>學生資訊</button> <br/>
-            <button>選修課程</button> <br/>
+            <button onclick="SM()">學生資訊</button> <br/>
+            <button onclick="SC()">選修課程</button> <br/>
             <button onclick="ES()">修改課程成績</button> <br/>
             <button onclick="SS()">產生成績單</button> <br/>
         </div>
@@ -67,6 +67,14 @@
       function ES() {
         var showHtml = document.getElementById("am");
             showHtml.src = '/Admin/editScoreAdmin.php';
+      }
+      function SC(){
+        var showHtml = document.getElementById("am");
+            showHtml.src = '/Classes/showStudentClass.php';
+      }
+      function SM(){
+        var showHtml = document.getElementById("am");
+            showHtml.src = '/Student/StudentManager.php';
       }
       function SS(){
         var showHtml = document.getElementById("am");
