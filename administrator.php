@@ -19,7 +19,7 @@
             <h2>學生管理</h2>
             <button>學生資訊</button> <br/>
             <button>選修課程</button> <br/>
-            <button>選修課程成績</button> <br/>
+            <button onclick="ES()">修改課程成績</button> <br/>
             <button onclick="SS()">產生成績單</button> <br/>
         </div>
         <button name='logout' class='logout'>登出</button>
@@ -63,6 +63,10 @@
       function CM(){
         var showHtml = document.getElementById("am");
             showHtml.src = '/Classes/ClassManager.php';
+      }
+      function ES() {
+        var showHtml = document.getElementById("am");
+            showHtml.src = '/Admin/editScoreAdmin.php';
       }
       function SS(){
         var showHtml = document.getElementById("am");
