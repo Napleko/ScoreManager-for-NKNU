@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
             if ($index === 'pr') {
                 $pr_act = $data[1];
                 $pr_pswd = $data[2];
-                if ($account === $pf_act && $pswd === $pf_pswd) {
+                if ($account === $pr_act && $pswd === $pr_pswd) {
                     echo json_encode(array(
                         'success' => true,
                         'message' => '歡迎回來，教授!',
@@ -59,6 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") { //如果是 POST 請求
                 }
             }
         } while ($data !== FALSE);
+        echo json_encode(array(
+            'success' => '帳號或密碼錯誤'
+        ));
     }else if ($identity == 'none' || $account == '' || $pswd == '') {
         echo json_encode(array(
             //'success' => "身分".$identity."帳號".$account."密碼".$pswd
