@@ -16,6 +16,8 @@
 動態顯示課程(後端)：showClass.php
 學生成績單頁：studentSelect.php
 取得學生學期成績(後端)：getSemesterScore.php
+修改學生課程成績：editScoreAdmin.php
+修改成績(後端)：changeScore.php
 
 管理員頁：
 各功能對應的網頁內嵌於id='am'的iframe
@@ -36,6 +38,10 @@
 學生成績單頁：
 -取得學生列表
 -產生學生學期成績單
+
+修改成績頁：
+-動態讀取成績資訊
+-修改成績
 
 安全性：
 登入時php建立session,產生session變數auth,進入網頁時根據auth判斷用戶權限
