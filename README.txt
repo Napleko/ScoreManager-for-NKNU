@@ -23,6 +23,7 @@
 學生選修課程管理頁：showStudentClass.php
 移除學生選修課程(後端)：removeStudentClass.php
 取得學生選修課程(後端)：getStudentClass.php
+新增學生選修課程(後端)：addStudentClass.php
 
 
 管理員頁：
@@ -49,6 +50,7 @@
 -動態顯示學生選項
 -取得學生選修課程資訊
 -移除學生選修課程
+-新增學生選修課程
 
 學生成績單頁：
 -取得學生列表
