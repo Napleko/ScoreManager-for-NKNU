@@ -32,6 +32,9 @@
                         },
                         success: function(data) {
                             if (data.success === true) {
+                                var st = document.getElementById('studentToAdd');
+                                st.innerHTML = $('#readStudent').val();
+                                //顯示選修課程
                                 var classList = document.getElementById('classList');
                                 var child = classList.lastElementChild;
                                 while (classList.childElementCount>1) { 
@@ -42,6 +45,17 @@
                                 for(i=0;i<data.classes.length;i++){
                                     let classData = data.classes[i];
                                     showClassData(classData[0],classData[1],classData[2],classData[3],classData[4],classData[5],data.account);
+                                }
+                                //顯示所有課程
+                                var classesList = document.getElementById('readClasses');
+                                var child = classesList.lastElementChild;
+                                while (classesList.childElementCount>1) { 
+                                    classesList.removeChild(child); 
+                                    child = classesList.lastElementChild; 
+                                } 
+                                for(i=0;i<data.allClasses.length;i++){
+                                    let classData = data.allClasses[i];
+                                    addClassOption(classData[0],classData[1],classData[2],classData[3],classData[4],classData[5]);
                                 }
                             }
                             else {
@@ -68,7 +82,64 @@
             <td>刪除</td>
         </tr>
     </table>
-      <script type="text/javascript">
+    <!--新增選修課程-->
+    <br/>
+    <form action="addStudentClass.php" method="POST">
+        新增選修課程:<p id='studentToAdd'></p>
+        <select id = 'readClasses'>
+        </select>
+        <input type = 'button' name='addStudentClass' value = '新增選修課程'>
+    </form>
+    <script type="text/javascript">
+    //
+      $(document).ready(function() {
+            $('[name = "addStudentClass"]').click(function() { 
+                var childs = document.getElementById('readStudent').children.length;
+                if(childs==0){ 
+                    alert("沒有學生"); 
+                }
+                else{
+                    var st = document.getElementById('studentToAdd');
+                    $.ajax({
+                        type: "POST", //傳送方式
+                        url: "addStudentClass.php", //傳送目的地
+                        dataType: "json", //資料格式
+                        data: { //傳送資料
+                            student: st.innerHTML,
+                            class: $('#readClasses').val()
+                        },
+                        success: function(data) {
+                            if (data.success === true) {
+                                alert('新增完成');
+                                window.location.reload();
+                            }
+                            else {
+                                alert("新增失敗");
+                            }
+                        }
+                    })
+                }
+            })
+      });
+      function addClassOption( Semester , Code , Name , Professor , Credit , Category) {
+        var class_List = document.getElementById('readClasses');
+        var newOption = document.createElement('option');
+        newOption.value = Code;
+        var classSemester;   //課程學期
+        if(Semester.slice(3)==1){
+            classSemester = Semester.slice(0,3)+" 上學期";
+        }
+        else {
+            classSemester = Semester.slice(0,3)+" 下學期";
+        }
+
+        var classCategory;     //課程種類
+        if(Category=='A') classCategory = "必修";
+        else classCategory = "選修";
+        newOption.innerHTML = classSemester+" "+Name+" 教授:"+Professor+" 學分:"+Credit+" 類型："+classCategory;
+        class_List.appendChild(newOption);
+    }
+      //Show class data
       function showClassData( Semester , Code , Name , Professor , Credit , Category, st) {
         var class_List = document.getElementById('classList');
         var newRow = document.createElement("tr");
